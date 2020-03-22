@@ -109,4 +109,9 @@ public class StudentRepo extends AbstractRepo<Student,String> {
         return t;
     }
 
+    @Override
+    public int size() {
+        return super.size();
+    }
+
 }

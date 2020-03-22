@@ -45,4 +45,6 @@ public class ServiceStudent {
     public Iterable<Student> all(){
         return rep.findAll();
     }
+
+    public int size() { return rep.size(); }
 }
