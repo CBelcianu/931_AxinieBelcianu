@@ -48,8 +48,22 @@ public class AppTest
         Teme tema = new Teme(1, "O tema", 10, 15);
         try {
             st.add(tema);
-        } catch(ValidationException e) {
+        } catch (ValidationException e) {
             assertEquals("\nDeadline invalid", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testAddAssignmentWhiteBox1() throws ValidationException {
+        TemeValidator tv = new TemeValidator();
+        TemeRepo trepo = new TemeRepo(tv, "teme.xml");
+        ServiceTeme tsrv = new ServiceTeme(trepo);
+        Teme teme = new Teme(1, "wtf", 15, 4);
+
+        try {
+            tsrv.add(teme);
+        } catch(ValidationException e) {
+            assertEquals("\nSaptama perdarii invalida", e.getMessage());
         }
     }
 
