@@ -58,12 +58,12 @@ public class AppTest
         TemeValidator tv = new TemeValidator();
         TemeRepo trepo = new TemeRepo(tv, "teme.xml");
         ServiceTeme tsrv = new ServiceTeme(trepo);
-        Teme teme = new Teme(1, "wtf", 15, 4);
+        Teme teme = new Teme(1, "wtf", 15, -1);
 
         try {
             tsrv.add(teme);
         } catch(ValidationException e) {
-            assertEquals("\nSaptama perdarii invalida", e.getMessage());
+            assertEquals("\nDeadline invalid\nSaptamana in care tema a fost primita este invalida", e.getMessage());
         }
     }
 
