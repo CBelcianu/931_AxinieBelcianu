@@ -4,9 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import Domain.Student;
+import Domain.Teme;
 import Repository.StudentRepo;
+import Repository.TemeRepo;
 import Service.ServiceStudent;
+import Service.ServiceTeme;
 import Validator.StudentValidator;
+import Validator.TemeValidator;
 import Validator.ValidationException;
 import org.junit.Test;
 
@@ -27,13 +31,26 @@ public class AppTest
     @Test
     public void testAddStudent() throws ValidationException {
         StudentValidator vs=new StudentValidator();
-        StudentRepo strepo=new StudentRepo(vs, "StudentiXML.xml");
+        StudentRepo strepo=new StudentRepo(vs, "StudentiXL.xml");
         ServiceStudent stsrv=new ServiceStudent(strepo);
         Student student = new Student("1", "Axinie", 931, "axiniuc@gmail.com", "prof");
 
         stsrv.add(student);
         assertEquals(931, stsrv.find("1").getGrupa());
         assertEquals(1, stsrv.size());
+    }
+
+    @Test
+    public void testAddAssignmentWhiteBox() throws ValidationException {
+        TemeValidator tv = new TemeValidator();
+        TemeRepo tr = new TemeRepo(tv, "teme.xml");
+        ServiceTeme st = new ServiceTeme(tr);
+        Teme tema = new Teme(1, "O tema", 10, 15);
+        try {
+            st.add(tema);
+        } catch(ValidationException e) {
+            assertEquals("\nDeadline invalid", e.getMessage());
+        }
     }
 
 }
