@@ -7,8 +7,10 @@ public class TemeValidator implements Validator<Teme> {
     public String validate(Teme t) {
         String m = new String();
         m = "";
-        if (t.getID() == null || t.getID().equals("") || t.getID()<1)
+        if (t.getID() == null || t.getID()<1)
             m = m + "\nID invalid";
+        if (t.getDescriere().equals(""))
+            m = m + "\nDescriere invalid";
         if (t.getDeadline()>14 || t.getDeadline()<1 || t.getDeadline()<t.getSapt_primire())
             m = m + "\nDeadline invalid";
         if(t.getSapt_primire()>14 || t.getSapt_primire()<1)
