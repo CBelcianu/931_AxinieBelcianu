@@ -359,18 +359,18 @@ public class AppTest
         }
     }
 
-    // test zero id
+    // only desciere good
     @Test
     public void whiteBoxT2() {
         TemeValidator tv = new TemeValidator();
         TemeRepo tr = new TemeRepo(tv, "teme.xml");
         ServiceTeme st = new ServiceTeme(tr);
-        Teme tema = new Teme(0, "O tema", 10, 12);
+        Teme tema = new Teme(-1, "O tema", 20, 200);
 
         try {
             st.add(tema);
         }catch(Exception e) {
-
+            assert(true);
         }
     }
 
@@ -467,7 +467,7 @@ public class AppTest
         }
     }
 
-    // negative delivery week
+    // negative dedline week
     @Test
     public void whiteBoxT9() {
         TemeValidator tv = new TemeValidator();
@@ -494,6 +494,66 @@ public class AppTest
             st.add(tema);
         }catch(Exception e) {
             assertEquals(e.getMessage(), "\nDeadline invalid");
+        }
+    }
+
+    // all good
+    @Test
+    public void whiteBoxT11() {
+        TemeValidator tv = new TemeValidator();
+        TemeRepo tr = new TemeRepo(tv, "teme2.xml");
+        ServiceTeme st = new ServiceTeme(tr);
+        Teme tema = new Teme(1, "O tema", 9, 10);
+
+        try {
+            st.add(tema);
+        }catch(Exception e) {
+            assert(false);
+        }
+    }
+
+    // only id good
+    @Test
+    public void whiteBoxT12() {
+        TemeValidator tv = new TemeValidator();
+        TemeRepo tr = new TemeRepo(tv, "teme2.xml");
+        ServiceTeme st = new ServiceTeme(tr);
+        Teme tema = new Teme(1, "", 20, 10);
+
+        try {
+            st.add(tema);
+        }catch(Exception e) {
+            assertEquals(e.getMessage(), "\nDescriere invalid\nDeadline invalid\nSaptamana in care tema a fost primita este invalida");
+        }
+    }
+
+    // only id and delivery good
+    @Test
+    public void whiteBoxT13() {
+        TemeValidator tv = new TemeValidator();
+        TemeRepo tr = new TemeRepo(tv, "teme2.xml");
+        ServiceTeme st = new ServiceTeme(tr);
+        Teme tema = new Teme(1, "", 9, -1);
+
+        try {
+            st.add(tema);
+        }catch(Exception e) {
+            assertEquals(e.getMessage(), "\nDescriere invalid\nDeadline invalid");
+        }
+    }
+
+    // only deadline good
+    @Test
+    public void whiteBoxT14() {
+        TemeValidator tv = new TemeValidator();
+        TemeRepo tr = new TemeRepo(tv, "teme2.xml");
+        ServiceTeme st = new ServiceTeme(tr);
+        Teme tema = new Teme(-1, "", 20, 13);
+
+        try {
+            st.add(tema);
+        }catch(Exception e) {
+            assertEquals(e.getMessage(), "\nID invalid\nDescriere invalid\nDeadline invalid\nSaptamana in care tema a fost primita este invalida");
         }
     }
 
