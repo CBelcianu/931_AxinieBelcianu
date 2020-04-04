@@ -22,8 +22,8 @@ public abstract class AbstractRepo <E extends hasID<ID>,ID> implements CrudRepo<
     public E save(E el){
         String msg=validator.validate(el);
         if(msg.equals("")){
-            E el2=findOne(el.getID());
             repo.putIfAbsent(el.getID(),el);
+            E el2=findOne(el.getID());
             return el2;
         }
         else throw new ValidationException(msg);
