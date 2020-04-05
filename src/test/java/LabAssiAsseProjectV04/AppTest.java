@@ -329,6 +329,48 @@ public class AppTest
         }
     }
 
+    @Test
+    public void blackboxT23() throws ValidationException {
+        StudentValidator vs=new StudentValidator();
+        StudentRepo strepo=new StudentRepo(vs, "StudentiXL.xml");
+        ServiceStudent stsrv=new ServiceStudent(strepo);
+        Student student = new Student("20", "asd", -1, "s@e.com", "prof");
+
+        try {
+            assertNull(stsrv.add(student));
+        } catch (ValidationException e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void blackboxT24() throws ValidationException {
+        StudentValidator vs=new StudentValidator();
+        StudentRepo strepo=new StudentRepo(vs, "StudentiXL.xml");
+        ServiceStudent stsrv=new ServiceStudent(strepo);
+        Student student = new Student("20", "asd", 105, "s@e.com", "prof");
+
+        try {
+            assertNull(stsrv.add(student));
+        } catch (ValidationException e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void blackboxT25() throws ValidationException {
+        StudentValidator vs=new StudentValidator();
+        StudentRepo strepo=new StudentRepo(vs, "StudentiXL.xml");
+        ServiceStudent stsrv=new ServiceStudent(strepo);
+        Student student = new Student("20", "asd", 145, "s@e.com", "prof");
+
+        try {
+            assertNull(stsrv.add(student));
+        } catch (ValidationException e) {
+            assertTrue(true);
+        }
+    }
+
 
     @Test
     public void testAddAssignmentWhiteBox() throws ValidationException {
