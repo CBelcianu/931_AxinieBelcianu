@@ -315,6 +315,19 @@ public class AppTest
         }
     }
 
+    @Test
+    public void blackboxT22() throws ValidationException {
+        StudentValidator vs=new StudentValidator();
+        StudentRepo strepo=new StudentRepo(vs, "StudentiXL.xml");
+        ServiceStudent stsrv=new ServiceStudent(strepo);
+        Student student = new Student("20", "", 936, "s@e.com", "prof");
+
+        try {
+            assertNull(stsrv.add(student));
+        } catch (ValidationException e) {
+            assertTrue(true);
+        }
+    }
 
 
     @Test
