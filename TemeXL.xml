@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Teme>
+    <Tema nr="3">
+        <descriere>tema grea</descriere>
+        <deadline>10</deadline>
+        <sapt_primire>4</sapt_primire>
+    </Tema>
+    <Tema nr="5">
+        <descriere>tema usoara</descriere>
+        <deadline>8</deadline>
+        <sapt_primire>7</sapt_primire>
+    </Tema>
+</Teme>
