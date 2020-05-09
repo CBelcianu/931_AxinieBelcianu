@@ -6,10 +6,10 @@
         <mail>axiniuc@gmail.com</mail>
         <profesor>prof</profesor>
     </Student>
-    <Student idStudent="4">
-        <nume>SomeoneElse</nume>
-        <grupa>933</grupa>
-        <mail>email2@gmail.com</mail>
+    <Student idStudent="3">
+        <nume>Someone</nume>
+        <grupa>932</grupa>
+        <mail>email@gmail.com</mail>
         <profesor>prof</profesor>
     </Student>
 </inbox>

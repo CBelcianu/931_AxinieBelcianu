@@ -30,7 +30,7 @@ public class IntegrationTest {
 
         stsrv.add(student);
         assertEquals(931, stsrv.find("1").getGrupa());
-        assertEquals(1, stsrv.size());
+        assertEquals(2, stsrv.size());
     }
 
     @Test

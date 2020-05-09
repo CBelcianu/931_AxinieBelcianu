@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Note>
+    <Nota idNota="11">
+        <nr>1</nr>
+        <valoare>8.5</valoare>
+        <predat>9</predat>
+        <deadline>12</deadline>
+        <feedback>O nota ff buna</feedback>
+    </Nota>
+</Note>
